@@ -1,6 +1,6 @@
 {
-  "name": "server",
-  "version": "1.0.0",
+  "name": "3205.server",
+  "version": "0.4.0",
   "description": "",
   "main": "src/main.ts",
   "scripts": {
