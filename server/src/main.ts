@@ -1,23 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
-import users from "../data/users.json";
+import cors from "cors";
+import { getUsers } from "./controllers/users.controller";
 
 const app = express();
 dotenv.config();
 
 const PORT = Number(process.env.PORT ?? 80);
+const TIMEOUT = Number(process.env.TIMEOUT ?? 0);
+
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.redirect("/api/users");
 });
 
 app.get("/api/users", (req, res) => {
-  const email = String(req.query.email ?? "");
-  if (email) {
-    const filteredUsers = users.find((user) => user.email.includes(email));
-    return res.json(filteredUsers);
-  }
-  res.json(users);
+  setTimeout(() => getUsers(req, res), TIMEOUT);
 });
 
 app.listen(PORT, () =>

@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { getUsers } from "./API/main";
+import { UI } from "./components/UI/main";
+import FindUserForm from "./components/FindUserForm";
+import UserList from "./components/UserList";
+import { UserI } from "./types";
 
 function App() {
+  const [userList, setUserList] = useState<UserI[]>([]);
+
+  useEffect(() => {
+    getUsers().then((users) => setUserList(users));
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FindUserForm setUserList={setUserList} />
+      <hr style={{ padding: "0 0px", margin: "10px 0" }} />
+      <UserList users={userList} />
     </div>
   );
 }
