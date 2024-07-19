@@ -1,0 +1,1 @@
+{ cd server && npm run build & cls & npm run start; } & { cd client && npm run start } &

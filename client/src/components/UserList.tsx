@@ -13,7 +13,7 @@ function UserList({ users }: UserListProps) {
             </div>
           );
         })}
-      {!users.length && <div>No users found</div>}
+      {!users && <div>No users found</div>}
     </div>
   );
 }
