@@ -1,27 +1,27 @@
 есть следующий JSON файл
-[{
-email: ‘jim@gmail.com’,
-number: ‘221122’
-}, {
-email: ‘jam@gmail.com’,
-number: ‘830347’
-}, {
-email: ‘john@gmail.com’,
-number: ‘221122’
-}, {
-email: ‘jams@gmail.com’,
-number: ‘349425’
-}, {
-email: ‘jams@gmail.com’,
-number: ‘141424’
-}, {
-email: ‘jill@gmail.com’,
-number: ‘822287’
-}, {
-email: ‘jill@gmail.com’,
-number: ‘822286’
-}]
-
+[{  
+email: ‘jim@gmail.com’,  
+number: ‘221122’  
+}, {  
+email: ‘jam@gmail.com’,  
+number: ‘830347’  
+}, {  
+email: ‘john@gmail.com’,  
+number: ‘221122’  
+}, {  
+email: ‘jams@gmail.com’,  
+number: ‘349425’  
+}, {  
+email: ‘jams@gmail.com’,  
+number: ‘141424’  
+}, {  
+email: ‘jill@gmail.com’,  
+number: ‘822287’  
+}, {  
+email: ‘jill@gmail.com’,  
+number: ‘822286’  
+}]  
+  
 Напишите приложение с одной страницей, на котором находится форма с двумя полями
 email (обязательное) и number (опциональное)
 и кнопка submit
