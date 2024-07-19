@@ -1,3 +1,17 @@
+### stack frontend:
+
+- html/css
+- typescript
+- React 19
+- axios
+
+### stack backend:
+
+- typescript
+- express
+
+---
+
 just run in your console in this directory
 and wait a bit
 
