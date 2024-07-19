@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { getUsers } from "./controllers/users.controller";
@@ -8,7 +8,7 @@ dotenv.config();
 
 const PORT = Number(process.env.PORT ?? 80);
 const TIMEOUT = Number(process.env.TIMEOUT ?? 0);
-let timeoutOfrouteApiUsers: NodeJS.Timeout;
+let routeUsersProps: { timeout?: NodeJS.Timeout; res?: Response } = {};
 
 app.use(cors());
 
@@ -17,11 +17,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/users", (req, res) => {
-  if (timeoutOfrouteApiUsers) clearTimeout(timeoutOfrouteApiUsers);
+  if (routeUsersProps.timeout) {
+    clearTimeout(routeUsersProps.timeout);
+    routeUsersProps.res?.status(418).send();
+  }
 
-  console.log("j");
-  timeoutOfrouteApiUsers = setTimeout(() => {
-    console.log("je;");
+  routeUsersProps.res = res;
+  routeUsersProps.timeout = setTimeout(() => {
     getUsers(req, res);
   }, TIMEOUT);
 });
