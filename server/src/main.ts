@@ -8,6 +8,7 @@ dotenv.config();
 
 const PORT = Number(process.env.PORT ?? 80);
 const TIMEOUT = Number(process.env.TIMEOUT ?? 0);
+let timeoutOfrouteApiUsers: NodeJS.Timeout;
 
 app.use(cors());
 
@@ -16,7 +17,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/users", (req, res) => {
-  setTimeout(() => getUsers(req, res), TIMEOUT);
+  if (timeoutOfrouteApiUsers) clearTimeout(timeoutOfrouteApiUsers);
+
+  console.log("j");
+  timeoutOfrouteApiUsers = setTimeout(() => {
+    console.log("je;");
+    getUsers(req, res);
+  }, TIMEOUT);
 });
 
 app.listen(PORT, () =>
